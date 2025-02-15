@@ -1,0 +1,275 @@
+/************************************************************
+  HEADER - Masaüstü & Mobil
+  -----------------------------------------------------------
+  - Masaüstü: header yüksekliği 116px, içerik 1440px’e göre
+    (sol/sağ 128px padding); logo grup: logo (52x52, 32px üst-alt)
+    ve logotype (296x~22px) yan yana (394px genişlik, gap 24px);
+    Menü: 5 adet, gap 64px arası, sağdan 128px boşluk.
+  - Mobil (max-width: 430px): header 112px yüksekliğinde,
+    sol/sağ 16px padding; logo: 40x40, logotype uygun boyutta;
+    hamburger 48x48; nav gizli.
+  - Header scroll'da sticky.
+************************************************************/
+
+/* Header temel */
+.site-header {
+  width: auto;
+  height: 116px;
+  flex-shrink: 0;
+  background: #FFF;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Yan taşmaları önlemek için */
+  overflow-x: hidden;
+}
+
+/* İçerik konteyneri: 1440px’e kadar ortalanmış, geniş ekranlarda auto */
+.site-header__content {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 128px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 116px;
+}
+
+/* LOGO GRUBU */
+.site-header__logo-group {
+  display: flex;
+  width: auto;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+/* Logo: 52x52, logo-yazisiz.png */
+.site-header__logo {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: url('images/logo-yazisiz.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* Logotype: 296px x ~22px, logo-yazi */
+.site-header__logotype {
+  width: 296px;
+  height: 22px;
+  flex-shrink: 0;
+  background: url('images/logo-yazi.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* MASAÜSTÜ MENÜ (Desktop) */
+.site-header__nav {
+  display: block;
+}
+.site-header__menu {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+  margin: 0;
+  padding: 0;
+}
+.site-header__menu-item {
+  flex-shrink: 1;
+}
+.site-header__menu-item a {
+  font-family: "Circular Std", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  color: rgba(25, 24, 37, 0.5);
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 8px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.site-header__menu-item a:hover {
+  color: #222831;
+  transform: scale(1.05);
+}
+.site-header__menu-item--active a {
+  color: #222831;
+}
+
+/* Hamburger butonu: mobilde gösterilecek */
+.site-header__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+/* MOBILE MENU OVERLAY */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: #FFF;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1100;
+}
+.mobile-menu-overlay.is-open {
+  transform: translateX(0);
+}
+.mobile-menu-overlay__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mobile-menu-overlay__close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  align-self: flex-end;
+}
+.mobile-menu-overlay__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.mobile-menu-overlay__menu-item a {
+  font-family: "Circular Std", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 120%;
+  color: rgba(25, 24, 37, 0.5);
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 8px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.mobile-menu-overlay__menu-item a:hover {
+  color: #222831;
+  transform: scale(1.05);
+}
+.mobile-menu-overlay__lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mobile-menu-overlay__lang {
+  font-family: "Circular Std", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #222831;
+  cursor: pointer;
+}
+.mobile-menu-overlay__lang-separator {
+  font-family: "Circular Std", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #222831;
+}
+.site-header__logo-link{
+  transform: scale(1);
+}
+
+/************************************************************
+  RESPONSIVE AYARLAR
+************************************************************/
+
+/* 1440px altı: */
+@media (max-width: 1440px) {
+  .site-header__content {
+    padding: 0 128px;
+  }
+  /* Ekstra: dil butonlarına margin-right (infobar örneği) */
+  .infobar__lang-switch {
+    margin-right: 48px;
+  }
+  .mobile-menu-overlay__menu {
+    margin-right: 32px;
+  }
+}
+
+/* 1024px altı: Tablet */
+@media (max-width: 1024px) {
+  .site-header__content {
+    padding: 0 40px;
+  }
+  .site-header__menu {
+    gap: 48px;
+  }
+  /* Ek soft scaling için menü öğelerinin fontu hafif küçülsün */
+  .site-header__menu-item a {
+    font-size: 13px;
+  }
+  /* Tablet ekranlarda masaüstü menüyü gizleyip hamburger menüyü göster */
+  .site-header__nav {
+    display: none;
+  }
+  .site-header__hamburger {
+    display: block;
+    margin-right: 108px;
+  }
+}
+
+/* 768px altı: Soft scaling için ek ayarlamalar (431px ile 768px arası) */
+@media (max-width: 768px) and (min-width: 431px) {
+  .site-header__menu {
+    gap: 32px;
+    align-items: center;
+  }
+  .site-header__menu-item a {
+    font-size: 13px;
+  }
+  .site-header__logo-link{
+    transform: scale(0.9);
+    padding-left: 0;
+  }
+}
+
+/* 430px altı: Mobil */
+@media (max-width: 430px) {
+  .site-header {
+    height: 112px;
+  }
+  .site-header__content {
+    padding: 0 16px;
+    min-height: 112px;
+  }
+  /* Logo: 40x40, Logotype küçülsün */
+  .site-header__logo {
+    width: 40px;
+    height: 40px;
+  }
+  .site-header__logo-link{
+    transform: scale(1.1);
+    margin-left: 12px;
+  }
+  .site-header__logotype {
+    width: 120px;
+    height: 18px;
+  }
+  /* Masaüstü menüyü gizle, hamburger'i göster */
+  .site-header__nav {
+    display: none;
+  }
+  .site-header__hamburger {
+    display: block;
+    margin-right: 32px; /* Sağ kenardan 16px boşluk */
+  }
+}

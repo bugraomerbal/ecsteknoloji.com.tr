@@ -1,0 +1,177 @@
+/* Inter Fontunu Dahil Et (Google Fonts üzerinden) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* Genel Ayarlar */
+html {
+  font-family: 'Inter', sans-serif;
+}
+body {
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Wrapper: Hem iletişim hem de harita alanı */
+.contacts-map-wrapper {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 80px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+/* İletişim Sayfası Düzeni */
+.contacts-container {
+  flex: 1;
+  text-align: center;
+}
+
+.contacts-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #222831;
+}
+
+/* İletişim Öğeleri */
+.contacts-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.contacts-item:hover {
+  transform: translateX(5px);
+}
+
+/* İkon Alanı: Sabit genişlik, aynı hizadan başlayacak */
+.contacts-icon {
+  width: 50px;
+  font-size: 28px;
+  color: #3289DB;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+/* Bilgi Alanı */
+.contacts-info {
+  text-align: left;
+  display: inline-block;
+}
+.contacts-info__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 5px;
+  color: #222831;
+}
+.contacts-info__text {
+  font-size: 16px;
+  margin: 0;
+  color: #555;
+}
+.contacts-info__text a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+.contacts-info__text a:hover {
+  color: #3289DB;
+}
+
+/* Google Maps Haritası */
+.map-container {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden; /* border-radius'ın uygulanması için */
+  min-height: 400px;
+}
+
+/* ---------------------------------------------------
+   Responsive Ayarlar (5 Media Query)
+-----------------------------------------------------*/
+
+/* 1) 1440px altı */
+@media (max-width: 1440px) {
+  .contacts-map-wrapper {
+    padding: 0 60px;
+    gap: 30px;
+  }
+  .contacts-title {
+    font-size: 36px;
+  }
+}
+
+/* 2) 1280px altı */
+@media (max-width: 1280px) {
+  .contacts-map-wrapper {
+    padding: 0 40px;
+    gap: 30px;
+  }
+  .contacts-title {
+    font-size: 34px;
+  }
+}
+
+/* 3) 1024px altı */
+@media (max-width: 1024px) {
+  .contacts-map-wrapper {
+    flex-direction: column;
+    padding: 0 40px;
+    align-items: center;     /* Ek: Dikeyde ortalamak için */
+    justify-content: center; /* Ek: Yatayda ortalamak için */
+  }
+  .contacts-title {
+    font-size: 32px;
+  }
+  .map-container {
+    margin-top: 30px;
+    min-height: 300px;
+  }
+}
+
+/* 4) 768px altı */
+@media (max-width: 768px) {
+  .contacts-map-wrapper {
+    padding: 0 30px;
+  }
+  .contacts-title {
+    font-size: 28px;
+  }
+  .map-container {
+    min-height: 250px;
+  }
+  .contacts-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .contacts-info {
+    text-align: center;
+  }
+}
+
+/* 5) 430px altı */
+@media (max-width: 430px) {
+  .contacts-map-wrapper {
+    padding: 0 16px;
+    gap: 20px;
+  }
+  .contacts-title {
+    font-size: 24px;
+  }
+  .contacts-info__title {
+    font-size: 18px;
+  }
+  .contacts-info__text {
+    font-size: 14px;
+  }
+  .map-container {
+    min-height: 200px;
+  }
+}

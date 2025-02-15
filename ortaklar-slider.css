@@ -1,0 +1,188 @@
+/* Logo Slider Konteyneri */
+.logo-slider-container {
+    overflow: hidden;
+    padding: 64px 0;
+}
+
+/* Logoları içeren ana slider */
+.logo-slider {
+    display: flex;
+    align-items: center;
+    /* justify-content kullanmayın, çünkü logoların ardışıklığı animasyona göre sağlanacak */
+    animation: scrollLogos 20s linear infinite;
+}
+
+/* Her bir logo kutusu */
+.logo {
+    flex: 0 0 auto;
+    margin-right: 30px; /* Aralarındaki boşluk */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logo resimleri: orijinal en-boy oranı korunur */
+.logo img {
+    max-height: 32px;
+    width: auto;
+    display: block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-right: 36px;
+}
+
+/* Hover durumunda opaklık ve hafif büyüme */
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Logoların sürekli kayma animasyonu */
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* İki set olduğu için, toplam genişliğin yarısı kadar sola kaydırılır */
+        transform: translateX(-50%);
+    }
+}
+
+.background-container {
+    position: relative;
+    z-index: 0;
+  }
+  
+  /* blur-ball-1: Örneğin sol üst köşede konumlanıyor */
+  .blur-ball-1 {
+    position: absolute;
+    top: -100px;   /* İsteğe göre ayarlayın */
+    left: -100px;  /* İsteğe göre ayarlayın */
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    opacity: 0.5;
+    background: rgba(20, 65, 170, 0.60);
+    filter: blur(250px);
+    z-index: -1;
+  }
+  
+  /* blur-ball-2: Örneğin sağ alt köşede konumlanıyor */
+  .blur-ball-2 {
+    position: absolute;
+    bottom: -100px; /* İsteğe göre ayarlayın */
+    right: -100px;  /* İsteğe göre ayarlayın */
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    opacity: 0.5;
+    background: rgba(20, 65, 170, 0.60);
+    filter: blur(250px);
+    z-index: -1;
+  }
+  
+  
+
+/* Responsive Düzenlemeler */
+
+/* 1024px altı */
+@media (max-width: 1024px) {
+    .logo-slider-container {
+        padding: 48px 0;
+    }
+    .logo {
+        margin-right: 25px;
+    }
+    .logo img {
+        max-height: 30px;
+    }
+
+    .blur-ball-1 {
+        top: -80px;
+        left: -80px;
+        width: 450px;
+        height: 450px;
+      }
+      .blur-ball-2 {
+        bottom: -80px;
+        right: -80px;
+        width: 450px;
+        height: 450px;
+      }
+    
+}
+
+/* 768px altı */
+@media (max-width: 768px) {
+    .logo-slider-container {
+        padding: 40px 0;
+    }
+    .logo {
+        margin-right: 20px;
+    }
+    .logo img {
+        max-height: 28px;
+    }
+
+    .blur-ball-1 {
+        top: -40px;
+        left: -40px;
+        width: 350px;
+        height: 350px;
+      }
+      .blur-ball-2 {
+        bottom: -40px;
+        right: -40px;
+        width: 350px;
+        height: 350px;
+      }
+}
+
+/* 600px altı */
+@media (max-width: 600px) {
+    .logo-slider-container {
+        padding: 32px 0;
+    }
+    .logo {
+        margin-right: 15px;
+    }
+    .logo img {
+        max-height: 26px;
+    }
+
+    .blur-ball-1 {
+        top: -30px;
+        left: -30px;
+        width: 300px;
+        height: 300px;
+      }
+      .blur-ball-2 {
+        bottom: -30px;
+        right: -30px;
+        width: 300px;
+        height: 300px;
+      }
+}
+
+/* 480px altı */
+@media (max-width: 480px) {
+    .logo-slider-container {
+        padding: 24px 0;
+    }
+    .logo {
+        margin-right: 10px;
+    }
+    .logo img {
+        max-height: 24px;
+    }
+    .blur-ball-1 {
+        top: -20px;
+        left: -20px;
+        width: 250px;
+        height: 250px;
+      }
+      .blur-ball-2 {
+        bottom: -20px;
+        right: -20px;
+        width: 250px;
+        height: 250px;
+      }
+}

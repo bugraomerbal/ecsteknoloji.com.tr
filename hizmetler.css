@@ -1,0 +1,406 @@
+/* Genel sayfa ayarları */
+/* Sayfanın genelinde taşan genişlikleri gizlemek için html ve body'de overflow-x: hidden kullanıyoruz */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Eğer gerekliyse, body veya diğer üst container’ların overflow ayarlarını kontrol edin */
+body {
+  /* Örneğin, body’de overflow:hidden varsa kaldırın veya gerekli durumlarda sadece belirli elementlere uygulayın */
+  overflow-x: visible;
+}
+
+/* İnternetten yüklenen font */
+/* Inter: Google Fonts üzerinden yüklenecek */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+/* Yerel TrueType ve OpenType Font Tanımlamaları */
+
+/* Circular Std - TrueType */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SF Pro Display - OpenType */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('fonts/SFProDisplay.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Animasyon Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Genel ana kapsayıcı */
+.main-hizmetler {
+  position: relative; /* İçerisindeki öğelerin konumlandırılabilmesi için */
+  overflow: visible;  /* İçerik taşmalarını engellemiyoruz */
+  max-width: 1440px;  /* İçerik genişliğini sınırlandırıyoruz */
+  width: 100%;
+  padding: 64px 0;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease forwards;
+  z-index: 1;  /* Daha düşük bir z-index */
+}
+
+/* Üst Yazı Grubu */
+.hizmetler-header {
+  margin-left: 108px;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.hizmetler-title {
+  color: #3289DB;
+  font-family: "Circular Std";
+  font-size: 23px;
+  margin-top: 92px;
+  font-weight: 700;
+  line-height: 120%; /* Yaklaşık 27.6px */
+  letter-spacing: 4.6px;
+  text-transform: uppercase;
+}
+
+.hizmetler-subtitle {
+  margin-top: 16px;
+  color: var(--Grey-Scale-Black, #191825);
+  font-family: "SF Pro Display";
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 120%; /* Yaklaşık 52.8px */
+  letter-spacing: 0.88px;
+}
+
+.hizmetler-arrows {
+  position: absolute;
+  top: 25%;
+  right: 108px; /* Hizmetler-header ile aynı yan boşluk */
+  transform: translateY(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 3; /* Diğer içeriklerin üzerinde görünsün */
+}
+
+.hizmetler-arrows button {
+  background: #FFF;
+  border: 1px solid rgba(25, 24, 37, 0.10);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hizmetler-arrows button:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+/* Scrolllanabilir Wrapper - Kartların scroll alanı */
+.cards-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Yalnızca bu alan yatay kaydırılabilir olacak */
+  position: relative;
+  z-index: 2;
+  /* Başlık ile hizalamak için padding kullanıyoruz */
+  padding-left: 108px;
+  padding-right: 108px;
+  -webkit-overflow-scrolling: touch; /* Mobilde pürüzsüz kaydırma */
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar'ı gizleme (isteğe bağlı) */
+.cards-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.cards-wrapper {
+  scrollbar-width: none; /* Firefox için */
+}
+
+/* Kartların Bulunduğu Konteyner */
+.cards-container {
+  display: flex;
+  gap: 24px;             /* Kartlar arası boşluk */
+  min-width: 3316px;     /* Kartların toplam genişliği; bu değerin, görünür alanı aştığından emin olun */
+  margin-top: 40px;      /* Üst yazı ile kartlar arası boşluk */
+}
+
+/* Kart Tasarımı */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 64px;
+  border-radius: 32px;
+  border: 1px solid rgba(25, 24, 37, 0.10);
+  background: #FFF;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0; /* Başlangıçta görünmez, animasyonla gelecek */
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Her kart için artan animasyon gecikmesi */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(8) { animation-delay: 0.8s; }
+.card:nth-child(9) { animation-delay: 0.9s; }
+
+/* Hover Efekti */
+.card:hover {
+  box-shadow: 0px 41px 89px 0px rgba(0, 0, 0, 0.10);
+  transform: scale(1.02);
+}
+
+/* Kart içi İkonlar */
+.card-icon-1,
+.card-icon-2,
+.card-icon-3,
+.card-icon-4,
+.card-icon-5,
+.card-icon-6,
+.card-icon-7,
+.card-icon-8,
+.card-icon-9 {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.card-icon-1 {
+  background: url('images/cctv-camera.png') no-repeat center/cover;
+}
+
+.card-icon-2 {
+  background: url('images/smoke-detector.png') no-repeat center/cover;
+}
+
+.card-icon-3 {
+  background: url('images/electrical-energy.png') no-repeat center/cover;
+}
+
+.card-icon-4 {
+  background: url('images/siren.png') no-repeat center/cover;
+}
+
+.card-icon-5 {
+  background: url('images/key-card.png') no-repeat center/cover;
+}
+
+.card-icon-6 {
+  background: url('images/parking-barrier.png') no-repeat center/cover;
+}
+
+.card-icon-7 {
+  background: url('images/smart-house.png') no-repeat center/cover;
+}
+
+.card-icon-8 {
+  background: url('images/charging-station.png') no-repeat center/cover;
+}
+
+.card-icon-9 {
+  background: url('images/global-network.png') no-repeat center/cover;
+}
+
+/* Kart Başlığı */
+.card-title {
+  margin-top: 64px;
+  text-align: center;
+  color: var(--Grey-Scale-Black, #191825);
+  font-family: "Circular Std";
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 120%; /* Yaklaşık 33.6px */
+}
+
+/* Kart İçeriği */
+.card-content {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--Grey-Scale-Black-50, rgba(25, 24, 37, 0.50));
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 160%; /* Yaklaşık 28.8px */
+}
+
+/* ============================
+   MEDIA QUERIES
+   ============================ */
+
+/* 1224px ve altı ekran genişliği için */
+@media (max-width: 1224px) {
+  /* İsteğe bağlı genel ayarlamalar yapılabilir */
+}
+
+/* 1024px ve altı ekran genişliği için:
+   Bu noktadan itibaren .hizmetler-header ortalanır */
+@media (max-width: 1024px) {
+  .hizmetler-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hizmetler-arrows {
+    display: none;
+  }
+  
+  /* Kartlarda hafif küçülme */
+  .card {
+    padding: 48px;
+  }
+  .card-title {
+    font-size: 24px;
+  }
+  .card-content {
+    font-size: 16px;
+  }
+  
+  /* İsteğe bağlı: .cards-container genişliği yeniden hesaplanabilir */
+  .cards-container {
+    min-width: calc(300px * 9 + 16px * 8);
+  }
+}
+
+/* 768px - 601px arası ekran genişliği için */
+@media (max-width: 768px) and (min-width: 601px) {
+  .hizmetler-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  /* Kartların padding ve yazı boyutları */
+  .card {
+    padding: 40px;
+  }
+  .card-title {
+    font-size: 22px;
+  }
+  .card-content {
+    font-size: 15px;
+  }
+  
+  /* Normalde yan yana olan kartların yatay kaydırma alanı yerine,
+     alt alta sıralanacak şekilde düzenleme */
+  .cards-wrapper {
+    overflow-x: visible;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    min-width: unset;
+    margin-top: 40px;
+  }
+  
+  /* Kart genişliğini sabit tutup ortalamak için */
+  .card {
+    width: 280px;      /* İstenilen genişlik */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* 600px - 481px arası ekran genişliği için */
+@media (max-width: 600px) and (min-width: 481px) {
+  .hizmetler-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .card {
+    padding: 32px;
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-title {
+    font-size: 20px;
+  }
+  .card-content {
+    font-size: 14px;
+  }
+  
+  /* Alt alta sıralama için */
+  .cards-wrapper {
+    overflow-x: visible;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    min-width: unset;
+    margin-top: 40px;
+  }
+}
+
+/* 480px ve altı ekran genişliği için */
+@media (max-width: 480px) {
+  .hizmetler-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .card {
+    padding: 24px;
+    width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-title {
+    font-size: 18px;
+  }
+  .card-content {
+    font-size: 12px;
+  }
+  
+  .cards-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-x: visible;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: unset;
+    margin-top: 40px;
+  }
+}

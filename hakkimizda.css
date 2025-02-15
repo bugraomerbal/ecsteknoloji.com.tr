@@ -1,0 +1,258 @@
+/* ========================================
+   Reset & Global Ayarlar
+======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ========================================
+   Ana Kapsayıcı
+======================================== */
+.hakkimizda-container {
+  max-width: 1440px;
+  margin: 64px auto 64px auto;  /* Üstte 104px, altta 64px boşluk, ortalanmış */
+  padding: 0 20px;              /* Yan taşmaları önlemek için */
+}
+
+/* ========================================
+   Birincil Başlık: ECS Teknoloji
+======================================== */
+.hakkimizda-title {
+  text-align: center;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 69px;
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #1441AA 0%, #3289DB 63.67%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+/* ========================================
+   Üst Kısım: Metin & Resim
+======================================== */
+.hakkimizda-top {
+  display: flex;
+  align-items: flex-start; /* Metin ve resim kapsayıcıları üstten aynı hizada başlasın */
+  gap: 30px;
+  margin-top: 42px;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Metin Bloğu */
+.hakkimizda-intro-text {
+  flex: 1;
+  max-width: 600px;
+  font-size: 18px;
+  color: rgba(25, 24, 37, 0.8);
+  line-height: 1.6;
+  text-align: left;
+  padding: 0 10px;
+  margin-left: 108px;
+}
+
+/* Resim & Resim Başlığı Kapsayıcısı */
+.hakkimizda-image-container {
+  flex: 1;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+/* Resim */
+.hakkimizda-image {
+  width: 100%;
+  height: auto;
+  border-radius: 32px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Efekti: Resim */
+.hakkimizda-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Resim Başlığı */
+.hakkimizda-image-title {
+  margin-top: 16px;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(25, 24, 37, 0.8);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Hover Efekti: Resim Başlığı */
+.hakkimizda-image-title:hover {
+  color: #3289DB;
+}
+
+/* ========================================
+   Diğer Metin Blokları (Devam, Vurgulu, Final)
+======================================== */
+.hakkimizda-continue-text,
+.hakkimizda-bold-text,
+.hakkimizda-final-text {
+  max-width: 1224px;
+  margin: 42px auto 0;
+  font-size: 18px;
+  color: rgba(25, 24, 37, 0.8);
+  line-height: 1.6;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.hakkimizda-bold-text {
+  font-weight: 700;
+}
+
+/* ========================================
+   İkinci Başlık: Misyon ve Vizyonumuz
+======================================== */
+.hakkimizda-second-title {
+  margin-top: 42px;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 69px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  background: linear-gradient(90deg, #1441AA 0%, #3289DB 63.67%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* ========================================
+   Animasyon Tanımları
+======================================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   Responsive Media Queries
+======================================== */
+
+/* 1024px altı */
+@media (max-width: 1024px) {
+  .hakkimizda-container {
+    padding: 0 40px;
+  }
+  .hakkimizda-title,
+  .hakkimizda-second-title {
+    font-size: 55px;
+  }
+  .hakkimizda-intro-text,
+  .hakkimizda-continue-text,
+  .hakkimizda-bold-text,
+  .hakkimizda-final-text {
+    font-size: 16px;
+    margin-left: auto;
+  }
+}
+
+/* 768px altı */
+@media (max-width: 768px) {
+  .hakkimizda-container {
+    padding: 0 30px;
+  }
+  .hakkimizda-title,
+  .hakkimizda-second-title {
+    font-size: 50px;
+  }
+  .hakkimizda-intro-text,
+  .hakkimizda-continue-text,
+  .hakkimizda-bold-text,
+  .hakkimizda-final-text {
+    font-size: 16px;
+    text-align: center;
+  }
+  .hakkimizda-intro-text {
+    max-width: 100%;
+  }
+}
+
+/* 600px altı: Dikey Sıralama */
+@media (max-width: 600px) {
+  .hakkimizda-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hakkimizda-intro-text,
+  .hakkimizda-image-container {
+    max-width: 100%;
+    padding: 0;
+  }
+  .hakkimizda-image-container {
+    margin-top: 20px;
+  }
+  .hakkimizda-image {
+    border-radius: 16px;
+  }
+}
+
+/* 480px altı */
+@media (max-width: 480px) {
+  .hakkimizda-title,
+  .hakkimizda-second-title {
+    font-size: 36px;
+  }
+  .hakkimizda-intro-text,
+  .hakkimizda-continue-text,
+  .hakkimizda-bold-text,
+  .hakkimizda-final-text {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .hakkimizda-image-title {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,95 @@
+/* Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* Body stiline dokunulmadı */
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Ana Kapsayıcı */
+.ortaklar-referanslar {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* İçerik Konteyneri */
+.ortaklar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Bölüm Başlıkları */
+.ortaklar-title,
+.referans-title {
+  font-size: 36px;
+  text-align: center;
+  margin: 50px 0 20px;
+  color: #222831;
+}
+
+/* Logoların Izgara Düzeni: 5 sütun; ekran boyutuna göre responsive */
+.logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* Logo Wrapper: Hover efekti ile kutu görünümü */
+.logo-wrapper {
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  stroke: aqua 1px;
+}
+.logo-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Görseli: Kare boyut, object-fit ile orantı korunur */
+.logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* Logo Alt Yazısı: Link stilini kaldırdık */
+.logo-caption {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  text-decoration: none;
+}
+
+/* Referans Logoları için Hover Efekti Kaldırıldı */
+.referans-logos .logo-wrapper:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Ayarlar */
+@media (max-width: 1024px) {
+  .logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .logos {
+    grid-template-columns: 1fr;
+  }
+  .ortaklar-title,
+  .referans-title {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,364 @@
+/* ========================
+   FONT YÜKLEMELERİ (fonts klasörü içinde truetype)
+   ======================== */
+
+/* CircularStd - Book Normal */
+@font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-Book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* CircularStd - Book Italic */
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-BookItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* CircularStd - Medium Normal */
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* CircularStd - Medium Italic */
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* CircularStd - Bold Normal */
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* CircularStd - Bold Italic */
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* CircularStd - Black Normal */
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* CircularStd - Black Italic */
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('fonts/CircularStd-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* SF Pro Display */
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url("fonts/SFProDisplay.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* ========================
+     Genel Stil Ayarları
+     ======================== */
+  html, body {
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: visible;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ========================
+     main-product Bölümü
+     ======================== */
+  .main-product {
+    max-width: 1440px;
+    width: 100%;
+    margin: 104px auto 0 auto; /* Üstte 104px boşluk, yatayda ortalanma */
+    padding: 0 20px;
+  }
+  
+  /* ========================
+     Ürün Başlık Alanı (Header)
+     ======================== */
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .product-header-left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 108px;  /* Sol tarafta boşluk */
+  }
+  .product-header-right {
+    margin-right: 108px; /* Sağ tarafta boşluk */
+  }
+  .product-label {
+    color: #3289DB;
+    font-family: "Circular Std";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 4.6px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .product-title {
+    color: var(--Grey-Scale-Black, #191825);
+    font-family: "SF Pro Display";
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 8px 0 0 0;
+  }
+  .product-all {
+   
+    width: 284px;
+    height: 23px;
+    color: #3289DB;
+    font-family: "Circular Std";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 4.6px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: right;
+    transition: color 0.3s ease;
+  }
+  .product-all:hover {
+    color: #005fa3;
+  }
+  
+  /* ========================
+     Ürün Kartları Bölümü
+     ======================== */
+  .product-cards-container {
+    display: flex;
+    gap: 32px;               /* Kartlar arası boşluk */
+    margin-top: 64px;         /* Üst boşluk */
+    padding: 0 108px;         /* Yan boşluklar */
+  }
+  
+  /* ========================
+     Fade In Animasyonu
+     ======================== */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ========================
+     Ürün Kartı
+     ======================== */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    height: 575px; /* Masaüstünde sabit yükseklik */
+    border-radius: 32px;
+    border: 1px solid #D5D5D5;
+    overflow: hidden;
+    
+    /* Giriş animasyonu */
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  .product-card:nth-child(1) { animation-delay: 0.1s; }
+  .product-card:nth-child(2) { animation-delay: 0.2s; }
+  .product-card:nth-child(3) { animation-delay: 0.3s; }
+  
+  /* Ürün Kartı - Fotoğraf Alanı */
+  /* Masaüstü: görsel container, arka plan resmi ayarları */
+  .product-card-image {
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 32px 32px 0 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Ürün Kartı - Yazı Alanı */
+  .product-card-info {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+    border-radius: 0 0 32px 32px;
+    background: #FFF;
+    box-shadow: 0px 801px 224px 0px rgba(0, 0, 0, 0.00),
+                0px 513px 205px 0px rgba(0, 0, 0, 0.01),
+                0px 288px 173px 0px rgba(0, 0, 0, 0.03),
+                0px 128px 128px 0px rgba(0, 0, 0, 0.04),
+                0px 32px 71px 0px rgba(0, 0, 0, 0.05),
+                0px 0px 0px 0px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Ürün Adı (H6) */
+  .product-name {
+    flex: 1 0 0;
+    color: var(--Grey-Scale-Black, #191825);
+    font-family: "Circular Std";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+  }
+  
+  /* Marka Adı */
+  .product-brand {
+    color: rgba(37, 24, 24, 0.75);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    margin: 0;
+  }
+  
+  /* Reyting Alanı */
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Reyting Sayısı (H6) */
+  .rating-value {
+    font-family: "Circular Std";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    color: var(--Orange, #FF5722);
+  }
+  
+  /* Yıldız İçin Kapsayıcı */
+  .rating-star {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Bağlantı (Ürün Kartı) */
+  .product-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .product-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* ========================
+     RESPONSIVE / MEDIA QUERIES
+     ======================== */
+  
+  /* 1024px ve altı: Ürün başlık alanı dikey, ortalı */
+  @media screen and (max-width: 1024px) {
+    .product-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .product-header-left,
+    .product-header-right {
+      margin: 0;
+    }
+    .product-header-left {
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* 768px ve altı: Kartlar container alt alta sıralansın ve ortalansın */
+  @media screen and (max-width: 768px) {
+    .product-cards-container {
+      flex-direction: column;
+      align-items: center; /* Kartları container içinde ortalar */
+      gap: 32px;
+      padding: 0 20px;
+    }
+    
+    /* Kart genişliği esneyip, masaüstü yüksekliği kaldırılıyor */
+    .product-card {
+      width: 100%;
+      max-width: 400px; /* İsteğe bağlı maksimum genişlik */
+      height: auto;     /* Yükseklik içerik akışına göre belirlensin */
+    }
+    
+    /* Görsel alanında en-boy oranının korunması için aspect-ratio ekliyoruz.
+       Böylece, arka plan resmi container boyutuna göre ölçeklenir ancak oranı sabit kalır. */
+    .product-card-image {
+      width: 100%;
+      aspect-ratio: 16/9; /* İstenilen en-boy oranı */
+    }
+  }
+  
+  /* 600px ve altı: Genel küçülme */
+  @media screen and (max-width: 600px) {
+    .main-product {
+      padding: 0 10px;
+    }
+  }
+  
+  /* 480px ve altı: Daha dar ekran ayarları */
+  @media screen and (max-width: 480px) {
+    .product-label,
+    .product-all {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+    
+    .product-title {
+      font-size: 36px;
+    }
+    
+    .product-card-info {
+      padding: 20px;
+      gap: 20px;
+    }
+  }
+  

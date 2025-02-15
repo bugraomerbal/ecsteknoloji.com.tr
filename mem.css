@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CircularStd - Book Italic */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-BookItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* CircularStd - Medium Normal */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CircularStd - Medium Italic */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* CircularStd - Bold Normal */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CircularStd - Bold Italic */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* CircularStd - Black Normal */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CircularStd - Black Italic */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('fonts/CircularStd-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+/* Ana kapsayıcı */
+.memnuniyet-main {
+  position: relative;
+  overflow: visible; /* Taşan kısımlar kırpılmayacak */
+  width: 100%;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  margin-top: 40px;
+}
+
+/* Arka Plan SVG Şekli */
+.memnuniyet-main__background-shape {
+  position: absolute;
+  left: 0;
+  bottom: -200px; /* Arka plan biraz daha aşağıda */
+  width: 100%;
+  opacity: 0.6;
+  filter: blur(2px);
+  z-index: 0;
+}
+.memnuniyet-main__background-shape svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Slider konteyneri */
+/* Eğer slider'ın konumunda sorun varsa "bottom" değerini kaldırın veya ayarlayın */
+.memnuniyet-main__slider-container {
+  position: relative;
+  z-index: 1;
+  /* bottom: -100px; */  /* Bu satırı kaldırabilirsiniz */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ok butonları */
+.memnuniyet-main__arrow {
+  background: #FFF;
+  border: 1px solid rgba(25, 24, 37, 0.10);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.memnuniyet-main__arrow:hover {
+  background: #f0f0f0;
+  transform: translateY(-50%) scale(1.05);
+}
+.memnuniyet-main__arrow--left {
+  left: 10px;
+}
+.memnuniyet-main__arrow--right {
+  right: 10px;
+}
+
+/* Slider Wrapper */
+.memnuniyet-main__slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Slider (flex container) */
+.memnuniyet-main__slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Her bir slide */
+.memnuniyet-main__slide {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* "MEMNUNİYET" yazısı */
+.memnuniyet-main__label {
+  color: #3289DB;
+  font-family: "Circular Std", sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 4.6px;
+  text-transform: uppercase;
+}
+
+/* Başlık (H3) */
+.memnuniyet-main__title {
+  color: var(--Grey-Scale-Black, #191825);
+  font-family: "Circular Std", sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 120%;
+  margin-top: 16px;
+}
+
+/* Profil resmi */
+.memnuniyet-main__profile {
+  width: 128px;
+  height: 128px;
+  border-radius: 128px;
+  background: #ccc;
+  background-size: cover;
+  background-position: center;
+  margin-top: 56px;
+}
+
+/* İsim / Ünvan */
+.memnuniyet-main__name {
+  /* Ortalamak için: */
+  align-self: center;
+  color: var(--Orange, #FF5722);
+  font-family: "Circular Std", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 120%;
+  margin-top: 56px;
+}
+
+/* Yıldızlar */
+.memnuniyet-main__stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* Açıklama metni */
+.memnuniyet-main__testimonial {
+  color: var(--Grey-Scale-Black-75, rgba(25, 24, 37, 0.75));
+  text-align: center;
+  font-family: "Circular Std", sans-serif;
+  font-size: 23px;
+  font-weight: 350;
+  line-height: 160%;
+  margin-top: 56px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px) {
+.memnuniyet-main__background-shape {
+  margin-bottom: 64px;
+}
+}
+
+

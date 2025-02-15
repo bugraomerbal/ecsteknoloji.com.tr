@@ -1,0 +1,178 @@
+/*****************************************************
+ * INFOBAR
+ * ---------------------------------------------------
+ * - Geniş ekranlarda 1440px'e kadar büyür, 
+ *   1440px üstü ortalanır (auto).
+ * - Yukarıdan 9px, aşağıdan 10px padding
+ *****************************************************/
+
+/* Ana kapsayıcı (tüm genişlikte siyah alan) */
+/* infobar.css */
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*****************************************************
+ * 1) Tarayıcı Varsayılanlarını Sıfırlamak
+ *    - "body" margin/padding sıfırlandı, 
+ *      böylece infobar tam ekranın tepesinde durur.
+ *****************************************************/
+/* ================================================
+   0) Tarayıcı Varsayılanlarını Sıfırlama
+   ================================================ */
+ /* 0) Varsayılan Sıfırlama */
+html, body {
+    margin: 0;
+    padding: 0;
+  
+    
+  }
+  
+  /* =========================================
+     1) INFObar Ana Kapsayıcı
+     - Masaüstü için (1440px ve üstü)
+     ========================================= */
+  .infobar {
+    width: 100%;
+    background: #000; /* Siyah arka plan */
+  }
+  
+  /* İçerik konteyneri (masaüstü) */
+  .infobar__content {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+  
+    /* Yukarı: 9px, Aşağı: 10px, Yanlar: 40px */
+    padding: 9px 40px 10px 40px; 
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Telefon & mail grubu (masaüstü) */
+  .infobar__contact-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 52px; /* Masaüstü boşluk */
+  }
+  
+  /* Telefon */
+  .infobar__phone {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+  }
+  .infobar__phone-icon {
+    width: 17.964px;
+    height: 17.964px;
+  }
+  .infobar__phone-text {
+    color: #FFF;
+    font-family: "Satoshi", sans-serif; 
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  /* Mail */
+  .infobar__email {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+  }
+  .infobar__email-icon {
+    width: 20px;
+    height: 16px;
+  }
+  .infobar__email-text {
+    color: #FFF;
+    font-family: "Satoshi", sans-serif; 
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  /* Dil Seçimi */
+  .infobar__lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .infobar__lang {
+    color: #FFF;
+    font-family: "Satoshi", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .infobar__lang--active {
+    font-weight: 700; /* Bold */
+  }
+  .infobar__lang-separator {
+    color: #FFF;
+    font-family: "Satoshi", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .infobar__lang:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 1440px) {
+     .infobar__lang-switch {
+    margin-right: 48px;
+  }
+  }
+
+  /* =========================================
+     2) Tablet (max-width: 1024px)
+     - Yatay padding ve gap değerlerini küçültürüz
+     ========================================= */
+  @media (max-width: 1024px) {
+    /* Container padding’i daralt */
+    .infobar{
+      display: none; 
+    }
+    .infobar__content {
+      padding: 9px 20px 10px 20px; 
+    }
+  
+    /* Telefon & mail arası gap azalır */
+    .infobar__contact-group {
+      gap: 30px; /* 52px yerine 30px */
+    }
+    
+    /* Font boyutlarını istersen düşürebilirsin */
+    .infobar__phone-text,
+    .infobar__email-text,
+    .infobar__lang {
+      font-size: 13px; /* Örnek: 14 -> 13 */
+    }
+
+    .infobar__lang-switch {
+        margin-right: 36px;
+      }
+  }
+  
+  /* =========================================
+     3) Mobil (max-width: 430px)
+     - İnfobar tamamen gizlenir
+     ========================================= */
+  @media (max-width: 430px) {
+    .infobar {
+      display: none;
+    }
+  }
+  

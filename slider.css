@@ -1,0 +1,305 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("fonts/Satoshi.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CircularStd";
+  src: url("fonts/CircularStd.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FONTSPRING DEMO - Integral CF Extra Bold";
+  src: url("fonts/IntegralCFExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Slider Stilleri */
+.slider {
+  position: relative;
+  display: inline-flex;
+  padding-left: 1px;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+/* Fade-in animasyonu slide arkaplanı için */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Metinler için kayarak gelme animasyonu */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Her bir slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Slide İçeriği */
+.slide-content {
+  position: absolute;
+  font-family: Satoshi, sans-serif;
+  top: 78px;
+  left: 120px;
+  color: #FFF;
+}
+
+/* Başlık animasyonu */
+.slide.active .slide-content h1 {
+  animation: slideIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.slide-content h1 {
+  font-family: "FONTSPRING DEMO - Integral CF Extra Bold", sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 64px;
+  width: 577px;
+  margin-bottom: 32px;
+  opacity: 0;
+}
+
+/* Açıklama animasyonu */
+.slide.active .slide-content p {
+  animation: slideIn 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.slide-content p {
+  width: 545px;
+  color: #F5F5F5;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 32px;
+  opacity: 0;
+}
+
+/* Buton animasyonu */
+.slide.active .slide-content .btn {
+  animation: slideIn 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.slide-content .btn {
+  display: flex;
+  width: 210px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 62px;
+  background: #FFF;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+}
+
+.slide-content .btn:hover {
+  background: #f0f0f0;
+  transform: scale(1.03);
+}
+
+.slide-content .btn span {
+  color: #000;
+  font-family: Satoshi, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+/* Slider Kontrol Dotları */
+.slider-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.slider-controls .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.slider-controls .dot:hover {
+  transform: scale(1.2);
+}
+
+.slider-controls .dot.active {
+  background: #FFF;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .slide-content {
+    top: 120px;
+    left: 80px;
+  }
+
+  .slide-content h1 {
+    font-size: 56px;
+    width: 500px;
+    line-height: 56px;
+  }
+
+  .slide-content p {
+    font-size: 15px;
+    width: 480px;
+    line-height: 21px;
+  }
+}
+
+@media (max-width: 992px) {
+  .slide-content {
+    top: 100px;
+    left: 60px;
+  }
+
+  .slide-content h1 {
+    font-size: 48px;
+    width: 450px;
+    line-height: 48px;
+  }
+
+  .slide-content p {
+    font-size: 14px;
+    width: 430px;
+    line-height: 20px;
+  }
+
+  .slide,
+  .slider {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-content {
+    top: 80px;
+    left: 40px;
+  }
+
+  .slide-content h1 {
+    font-size: 40px;
+    width: 400px;
+    line-height: 40px;
+  }
+
+  .slide-content p {
+    font-size: 13px;
+    width: 380px;
+    line-height: 18px;
+  }
+
+  .slide,
+  .slider {
+    height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .slide-content {
+    top: 20px;
+    left: 20px;
+  }
+
+  .slide-content .btn {
+    
+    height: 40px;
+  }
+
+  .slide-content h1 {
+    font-size: 32px;
+    width: 320px;
+    line-height: 32px;
+  }
+
+  .slide-content p {
+    font-size: 12px;
+    width: 300px;
+    line-height: 16px;
+  }
+
+  .slide,
+  .slider {
+    height: 300px;
+  }
+
+  .slider-controls {
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .slide-content {
+    top: 50px;
+    left: 10px;
+  }
+
+  .slide-content h1 {
+    font-size: 28px;
+    width: 280px;
+    line-height: 28px;
+  }
+
+  .slide-content p {
+    font-size: 11px;
+    width: 260px;
+    line-height: 15px;
+  }
+
+  .slide,
+  .slider {
+    height: 250px;
+  }
+}
